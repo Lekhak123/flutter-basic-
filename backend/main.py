@@ -23,11 +23,11 @@ def tts():
             sql = "INSERT INTO data (name) VALUES ('{}')".format(text)
             cursor.execute(sql)
             mydb.commit()
-            message = "{} was added.".format(text)
+            message = jsonify(entry= text,status=True)
             return message
         except Exception as error:
             print(error)
-            return "Error 400"
+            return False
 
 
 @app.route("/clear", methods=["POST"])
@@ -41,6 +41,7 @@ def clear():
     except Exception as error:
         print(error)
         return "Error in /clear"
+
 
 
 if __name__ == "__main__":
