@@ -70,9 +70,9 @@ class _HomePageState extends State<HomePage> {
               pressed.value = false;
               return;
             }
-
-            bool result = await db_post(posted.value);
             posted.value = textInput.value;
+            bool result = await db_post(posted.value);
+
             pressed.value = result;
             textInput.value = "";
             clearText();
